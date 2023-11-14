@@ -1,18 +1,19 @@
 package com.example.clapp.controller;
 
 import com.example.clapp.model.entities.ResultadoDiario;
-import com.example.clapp.service.implementation.ResultadoDiarioImpl;
+import com.example.clapp.service.interfaces.ResultadoDiarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins={"*"})
 @RestController
-@RequestMapping("/resultado/diario")
+@RequestMapping("/resultados")
 @RequiredArgsConstructor
 public class ResultadoDiarioRestController {
 
-    private final ResultadoDiarioImpl resultadoDeportivoService;
+    private final ResultadoDiarioService resultadoDeportivoService;
 
     @GetMapping("/working")
     public String working() {

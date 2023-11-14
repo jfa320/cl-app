@@ -4,7 +4,7 @@ import com.example.clapp.model.entities.ResultadoDiario;
 
 import java.util.List;
 
-public interface ResultadoDiarioInterface {
+public interface ResultadoDiarioService {
     void agregarResultado(ResultadoDiario resultado);
     List<ResultadoDiario> getResultadosHistorico();
 }
