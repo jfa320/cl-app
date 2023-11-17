@@ -3,8 +3,14 @@ package com.example.clapp.controller;
 import com.example.clapp.model.entities.ResultadoDiario;
 import com.example.clapp.service.interfaces.ResultadoDiarioService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @CrossOrigin(origins={"*"})
@@ -21,12 +27,32 @@ public class ResultadoDiarioRestController {
     }
 
     @PostMapping("/agregar")
-    public void agregarResultado(@RequestBody ResultadoDiario resultado) {
+    public ResponseEntity<?> agregarResultado(@Valid @RequestBody ResultadoDiario resultado, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error de validación: " + bindingResult.getAllErrors());
+        }
         resultadoDeportivoService.agregarResultado(resultado);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Resultado creado exitosamente");
     }
 
     @GetMapping("/listar")
-    public List<ResultadoDiario> listarResultadosHistoricos() {
-        return resultadoDeportivoService.getResultadosHistorico();
+    public ResponseEntity<?> listarResultadosHistoricos() {
+        try {
+            List<ResultadoDiario> resultados = resultadoDeportivoService.getResultadosHistorico();
+            return ResponseEntity.ok(resultados);
+        } catch (Exception e) {
+            // Manejar la excepción y devolver una respuesta apropiada
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al obtener resultados históricos: " + e.getMessage());
+        }
+    }
+    @GetMapping("/listar/page/{page}")
+    public ResponseEntity<?> listarResultadosHistoricos(@PathVariable Integer page) {
+        try {
+            Page<ResultadoDiario> resultadosPage = resultadoDeportivoService.getResultadosHistorico(PageRequest.of(page, 10));
+            return ResponseEntity.ok(resultadosPage);
+        } catch (Exception e) {
+            // Manejar la excepción y devolver una respuesta apropiada
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al obtener resultados históricos: " + e.getMessage());
+        }
     }
 }

@@ -3,9 +3,11 @@ package com.example.clapp.model.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
@@ -16,7 +18,9 @@ public class ResultadoDiario {
     @Id
     private String id;
     private Date fecha;
+    @NotNull(message = "Partidos Ganados no puede ser nulo")
     private Integer partidosGanados;
+    @NotNull(message = "Partidos Perdidos no puede ser nulo")
     private Integer partidosPerdidos;
 
     public ResultadoDiario() {
