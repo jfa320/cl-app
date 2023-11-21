@@ -17,8 +17,8 @@ public class ResultadoDiarioImpl implements ResultadoDiarioService {
     private final ResultadoDiarioRepository resultadoDiarioRepository;
 
     @Override
-    public void agregarResultado(ResultadoDiario resultado) {
-        resultadoDiarioRepository.save(resultado);
+    public ResultadoDiario agregarResultado(ResultadoDiario resultado) {
+        return resultadoDiarioRepository.save(resultado);
     }
 
     @Override

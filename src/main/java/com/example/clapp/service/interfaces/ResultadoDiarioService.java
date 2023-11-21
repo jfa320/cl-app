@@ -7,7 +7,7 @@ import org.springframework.data.domain.PageRequest;
 import java.util.List;
 
 public interface ResultadoDiarioService {
-    void agregarResultado(ResultadoDiario resultado);
+    ResultadoDiario agregarResultado(ResultadoDiario resultado);
     List<ResultadoDiario> getResultadosHistorico();
     Page<ResultadoDiario> getResultadosHistorico(PageRequest page);
 }

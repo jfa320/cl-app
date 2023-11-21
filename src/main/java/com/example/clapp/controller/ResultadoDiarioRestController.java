@@ -31,8 +31,8 @@ public class ResultadoDiarioRestController {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error de validación: " + bindingResult.getAllErrors());
         }
-        resultadoDeportivoService.agregarResultado(resultado);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Resultado creado exitosamente");
+        ResultadoDiario resultadoDiario = resultadoDeportivoService.agregarResultado(resultado);
+        return ResponseEntity.status(HttpStatus.CREATED).body(resultadoDiario);
     }
 
     @GetMapping("/listar")
@@ -48,7 +48,7 @@ public class ResultadoDiarioRestController {
     @GetMapping("/listar/page/{page}")
     public ResponseEntity<?> listarResultadosHistoricos(@PathVariable Integer page) {
         try {
-            Page<ResultadoDiario> resultadosPage = resultadoDeportivoService.getResultadosHistorico(PageRequest.of(page, 10));
+            Page<ResultadoDiario> resultadosPage = resultadoDeportivoService.getResultadosHistorico(PageRequest.of(page, 11));
             return ResponseEntity.ok(resultadosPage);
         } catch (Exception e) {
             // Manejar la excepción y devolver una respuesta apropiada
