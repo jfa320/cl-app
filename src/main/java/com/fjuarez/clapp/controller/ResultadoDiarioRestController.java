@@ -1,7 +1,7 @@
-package com.example.clapp.controller;
+package com.fjuarez.clapp.controller;
 
-import com.example.clapp.model.entities.ResultadoDiario;
-import com.example.clapp.service.interfaces.ResultadoDiarioService;
+import com.fjuarez.clapp.model.entities.ResultadoDiario;
+import com.fjuarez.clapp.service.interfaces.ResultadoDiarioService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

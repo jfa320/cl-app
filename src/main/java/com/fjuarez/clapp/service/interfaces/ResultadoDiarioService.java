@@ -1,6 +1,6 @@
-package com.example.clapp.service.interfaces;
+package com.fjuarez.clapp.service.interfaces;
 
-import com.example.clapp.model.entities.ResultadoDiario;
+import com.fjuarez.clapp.model.entities.ResultadoDiario;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 

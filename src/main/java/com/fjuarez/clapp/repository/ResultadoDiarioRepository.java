@@ -1,6 +1,6 @@
-package com.example.clapp.repository;
+package com.fjuarez.clapp.repository;
 
-import com.example.clapp.model.entities.ResultadoDiario;
+import com.fjuarez.clapp.model.entities.ResultadoDiario;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;

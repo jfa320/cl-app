@@ -1,4 +1,4 @@
-package com.example.clapp.model.entities;
+package com.fjuarez.clapp.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

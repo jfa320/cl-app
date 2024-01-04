@@ -1,13 +1,12 @@
-package com.example.clapp.service.implementation;
+package com.fjuarez.clapp.service.implementation;
 
-import com.example.clapp.model.entities.ResultadoDiario;
-import com.example.clapp.repository.ResultadoDiarioRepository;
-import com.example.clapp.service.interfaces.ResultadoDiarioService;
+import com.fjuarez.clapp.model.entities.ResultadoDiario;
+import com.fjuarez.clapp.repository.ResultadoDiarioRepository;
+import com.fjuarez.clapp.service.interfaces.ResultadoDiarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 

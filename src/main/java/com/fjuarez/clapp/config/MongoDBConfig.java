@@ -1,4 +1,4 @@
-package com.example.clapp.config;
+package com.fjuarez.clapp.config;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
