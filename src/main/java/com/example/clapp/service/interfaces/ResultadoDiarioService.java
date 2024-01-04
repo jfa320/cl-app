@@ -10,4 +10,6 @@ public interface ResultadoDiarioService {
     ResultadoDiario agregarResultado(ResultadoDiario resultado);
     List<ResultadoDiario> getResultadosHistorico();
     Page<ResultadoDiario> getResultadosHistorico(PageRequest page);
+    void deleteById(String id);
+    ResultadoDiario findById(String id);
 }

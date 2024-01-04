@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 
@@ -31,5 +32,13 @@ public class ResultadoDiarioImpl implements ResultadoDiarioService {
         return resultadoDiarioRepository.findAllByOrderByFechaDesc(page);
     }
 
+    @Override
+    public void deleteById(String id) {
+        resultadoDiarioRepository.deleteById(id);
+    }
 
+    @Override
+    public ResultadoDiario findById(String id) {
+        return resultadoDiarioRepository.findById(id).get();
+    }
 }
