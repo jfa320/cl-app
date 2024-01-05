@@ -13,6 +13,7 @@ class MongoDbConfig extends AbstractMongoClientConfiguration {
 
     @Override
     public MongoClient mongoClient() {
+        //TODO agregar un secret para user y pass de la BD
         String connectionString = "mongodb+srv://chano:chanogod@cluster0.zbihtrt.mongodb.net/resultados_diarios?retryWrites=true&w=majority";
 
         MongoClientSettings settings = MongoClientSettings.builder()
